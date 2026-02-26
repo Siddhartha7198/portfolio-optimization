@@ -83,32 +83,6 @@ Data are retrieved using the `yfinance` API. Log returns are computed and annual
 
 ## 5. Implementation Architecture
 
-The codebase is modular and structured as follows:
-
-portfolio-optimization/
-├── notebooks/
-│   ├── analysis.ipynb
-├── src/
-│   ├── __init__.py
-│   ├── data_loader.py
-│   ├── return_estimators.py
-│   ├── covariance_estimators.py
-│   ├── constrained_optimizer.py
-│   ├── shrinkage.py
-│   ├── backtest.py
-│   ├── efficient_frontier.py
-│   ├── optimizer.py
-│   ├── backtest_shrinkage.py
-│   └── stability_analysis.py
-├── requirements.txt
-└── figures/
-
-- **Data ingestion** and cleaning
-- **Return & covariance estimation**
-- **Efficient frontier & constrained optimization**
-- **Shrinkage covariance estimation**
-- **Rolling stability & backtesting modules**
-
 All modeling logic is implemented in Python functions and classes, and the analysis is documented in a single comprehensive Jupyter notebook (`analysis.ipynb`).
 
 ---
