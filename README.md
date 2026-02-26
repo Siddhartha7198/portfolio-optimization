@@ -1,11 +1,18 @@
 # 📈 Mean–Variance Portfolio Optimization (Markowitz)
 
----
 
 ## Executive Summary
 
 This project implements and analyzes the classical mean–variance portfolio optimization framework with real ETF market data. Beyond constructing optimal portfolios, it rigorously examines numerical instability, sensitivity to estimation error, effects of realistic constraints (long-only), and the benefits of covariance shrinkage (Ledoit–Wolf). The analysis demonstrates why naive mean–variance optimization often produces unstable results and how practical remedies improve robustness and out-of-sample performance.
 
+The project constructs:
+- **Efficient frontier** for risk-return tradeoffs
+- **Tangency portfolio** (maximum Sharpe ratio)
+- **Long-only optimization** reflecting real constraints
+- **Shrinkage covariance estimator** (Ledoit–Wolf)
+- **Rolling stability and out-of-sample backtest**
+It provides diagnostic metrics such as condition number, eigenvalue spectra, concentration indices, and turnover measures to deepen understanding of model behavior.
+  
 ---
 
 ## 1. Motivation and Practical Relevance
@@ -16,14 +23,8 @@ Portfolio optimization is a foundational tool in quantitative finance used to al
 
 ## 2. Model Overview
 
-The project constructs:
-- **Efficient frontier** for risk-return tradeoffs
-- **Tangency portfolio** (maximum Sharpe ratio)
-- **Long-only optimization** reflecting real constraints
-- **Shrinkage covariance estimator** (Ledoit–Wolf)
-- **Rolling stability and out-of-sample backtest**
-
-It provides diagnostic metrics such as condition number, eigenvalue spectra, concentration indices, and turnover measures to deepen understanding of model behavior.
+In the standard Markowitz framework, we solve: $$\min_{w} \; w^T \Sigma w$$ 
+subject to: $$w^T \mu = \mu^*, \quad \mathbf{1}^T w = 1$$
 
 ---
 
