@@ -11,6 +11,7 @@ The project constructs:
 - **Long-only optimization** reflecting real constraints
 - **Shrinkage covariance estimator** (Ledoit–Wolf)
 - **Rolling stability and out-of-sample backtest**
+  
 It provides diagnostic metrics such as condition number, eigenvalue spectra, concentration indices, and turnover measures to deepen understanding of model behavior.
   
 ---
@@ -22,13 +23,6 @@ Portfolio optimization is a foundational tool in quantitative finance used to al
 ---
 
 ## 2. Model Overview
-
-In the standard Markowitz framework, we solve: $$\min_{w} \; w^T \Sigma w$$ 
-subject to: $$w^T \mu = \mu^*, \quad \mathbf{1}^T w = 1$$
-
----
-
-## 3. Mathematical Framework
 
 The classical mean–variance optimization problem is:
 
@@ -43,6 +37,10 @@ w^T \mu = \mu^*,
 \qquad 
 \mathbf{1}^T w = 1
 $$
+
+---
+
+## 3. Mathematical Framework
 
 The tangency portfolio with risk-free rate $r_f$ is:
 
@@ -86,20 +84,24 @@ Data are retrieved using the `yfinance` API. Log returns are computed and annual
 ## 5. Implementation Architecture
 
 The codebase is modular and structured as follows:
+
 portfolio-optimization/
 ├── notebooks/
-| ├── analysis.ipynb
+│   ├── analysis.ipynb
 ├── src/
-│ ├── data_loader.py
-│ ├── return_estimators.py
-│ ├── covariance_estimators.py
-│ ├── constrained_optimizer.py
-│ ├── shrinkage.py
-│ ├── backtest.py
-│ └── stability_analysis.py
+│   ├── __init__.py
+│   ├── data_loader.py
+│   ├── return_estimators.py
+│   ├── covariance_estimators.py
+│   ├── constrained_optimizer.py
+│   ├── shrinkage.py
+│   ├── backtest.py
+│   ├── efficient_frontier.py
+│   ├── optimizer.py
+│   ├── backtest_shrinkage.py
+│   └── stability_analysis.py
 ├── requirements.txt
 └── figures/
-
 
 - **Data ingestion** and cleaning
 - **Return & covariance estimation**
